@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Anti Ragging | Login</title>
+  <link href="assets/img/logo/logo.png" rel="icon">
+  <link href="ajax/libs/bootstrap/5.1.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="ajax/libs/bootstrap-icons/1.8.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="assets/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+  <style>
+    body {
+      background-image: url('assets/img/login-background.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .chart-block {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      max-height: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header Section -->
+  <div id="header" class="d-flex align-items-center">
+    <div class="container d-flex align-items-center">
+      <a href="home.html">
+        <img class="bg-light logo me-auto" src="assets/img/logo/logo.png" alt="antiragging-logo">
+      </a>
+    </div>
+  </div>
+
+  <!-- Login Form Section -->
+  <div class="col-8 col-lg-4 chart-block p-4">
+    <p class="text-center text-dark h5 fw-bold">Sign In</p>
+    <hr>
+    <form action="http://localhost:5000/login" method="post">
+      <input class="form-control mb-3" type="text" name="identifier" placeholder="Username or Email" required>
+      <input class="form-control mb-3" type="password" name="passphrase" placeholder="Password" required>
+      <button class="btn btn-primary w-100" type="submit">Login</button>
+    </form>
+  </div>
+</body>
+
+</html>
