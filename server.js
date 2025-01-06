@@ -28,17 +28,105 @@ const validateInput = (req, res, next) => {
 
 // Register User (Sign-Up)
 app.post('/signup', async (req, res) => {
-  // User registration logic
+  const {
+    title,
+    full_name,
+    street,
+    additional_info,
+    zip,
+    place,
+    country,
+    code,
+    phone,
+    email,
+    password,
+    agreed_to_terms
+  } = req.body;
+
+  try {
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const agreed = agreed_to_terms === 'on' ? true : false;
+
+    const { data, error } = await supabase
+      .from('Users')
+      .insert([{
+        title,
+        full_name,
+        street,
+        additional_info,
+        zip,
+        place,
+        country,
+        code,
+        phone,
+        email,
+        password: hashedPassword,
+        agreed_to_terms: agreed
+      }]);
+
+    if (error) throw error;
+    res.status(201).json({ message: 'User registered successfully' });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
 });
 
 // Login Route
 app.post('/login', validateInput, async (req, res) => {
-  // Login logic
+  const { identifier, passphrase } = req.body;
+
+  try {
+    // Search for user by email or username
+    const { data, error } = await supabase
+      .from('Users')
+      .select()
+      .or(`email.eq.${identifier},username.eq.${identifier}`)
+      .single();
+
+    if (!data || error) {
+      return res.status(400).json({ error: 'Invalid credentials' });
+    }
+
+    // Verify password
+    const validPassword = await bcrypt.compare(passphrase, data.password);
+    if (!validPassword) {
+      return res.status(401).json({ error: 'Incorrect password' });
+    }
+
+    // Generate JWT token
+    const token = jwt.sign({ user_id: data.user_id, title: data.title }, process.env.JWT_SECRET, { expiresIn: '1h' });
+    res.json({ token });
+  } catch (error) {
+    res.status(500).json({ error: 'An error occurred during login' });
+  }
 });
 
 // Complaint Registration Route
 app.post('/complaints', authenticateToken, async (req, res) => {
-  // Complaint registration logic
+  const { complaint_name, victim_name, mobile, email, gender, caste, state, details } = req.body;
+
+  if (req.user.title !== 'Student') {
+    return res.status(403).json({ error: 'Only students can file complaints' });
+  }
+
+  try {
+    const { error } = await supabase.from('Complaints').insert([{
+      user_id: req.user.user_id,
+      complaint_name,
+      victim_name,
+      mobile,
+      email,
+      gender,
+      caste,
+      state,
+      details
+    }]);
+
+    if (error) throw error;
+    res.json({ message: 'Complaint submitted successfully' });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
 });
 
 // Middleware for Token Authentication
@@ -55,7 +143,7 @@ function authenticateToken(req, res, next) {
 
 // Default Route to serve the login page
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'home.html'));
+  res.sendFile(path.join(__dirname, 'public', 'home.html')); // Serve login.html as the homepage
 });
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
