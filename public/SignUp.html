@@ -9,78 +9,98 @@
 </head>
 
 <body>
+    <!-- <h1>Sign Up</h1> -->
     <div class="main">
         <h1>Sign Up</h1>
-        <form action="/signup" method="post" id="myform">
+        <form action="/signup" method="post" id="myform" onsubmit="submitForm(event)">
             <div class="Who">
                 <label for="title">Who is This: </label>
-                <select name="title" required>
-                    <option value="Student">Student</option>
-                    <option value="Mental Counselor">Mental Counselor</option>
-                    <option value="Disciplinary Committee">Disciplinary Committee</option>
+                <select name="title">
+                    <option value="title">Student</option>
+                    <!-- <option value="title">Mental Counsellor</option> -->
+                    <!-- <option value="title">Disciplinary Committee</option> -->
                 </select>
             </div>
             <br>
             <div class="name">
-                <label for="full_name">Full Name: </label>
-                <input type="text" name="full_name" id="full_name" class="input-text" placeholder="Full Name" required>
+                <label for="fname">First Name: </label>
+                <input type="text" name="first_name" id="fname" class="input-text" placeholder="First Name" required>
+                <br>
+                <br>
+                <label for="lname">Last Name: </label>
+                <input type="text" name="last_name" id="lname" class="input-text" placeholder="Last Name" required>
             </div>
             <br>
             <div class="address">
                 <h2>Address</h2>
-                <label for="street">Street Name: </label>
+                <label for="Street">Street Name: </label>
                 <input type="text" name="street" placeholder="Street Name" id="street" required>
                 <br>
                 <br>
-                <label for="additional_info">Address Line 2: </label>
-                <input type="text" name="additional_info" id="additional_info" placeholder="Additional Information">
+                <label for="additional">Address Line 2: </label>
+                <input type="text" name="additional" class="additional" id="additional"
+                    placeholder="Additional Information" required>
+                <br>
+                <br>
+                <label for="district">District Name: </label>
+                <input type="text" name="district" id="district" placeholder="District" required>
                 <br>
                 <br>
                 <label for="zip">PinCode: </label>
-                <input type="text" name="zip" id="zip" placeholder="Zip Code" required>
-                <br>
-                <br>
-                <label for="place">Place (Street/District/City): </label>
-                <input type="text" name="place" id="place" placeholder="Street, District, or City" required>
+                <input type="text" name="zip" class="zip" id="zip" placeholder="Zip Code" required>
                 <br>
                 <br>
                 <label for="country">Country Name: </label>
-                <select name="country" id="country" required>
-                    <option value="India">India</option>
-                    <option value="Malaysia">Malaysia</option>
-                    <option value="Vietnam">Vietnam</option>
-                </select>
+                <input type="text" name="country" id="country" placeholder="Country" required>
             </div>
 
             <div class="contact">
                 <h2>Contact Details</h2>
-                <label for="email">Email Address: </label>
-                <input type="email" name="email" id="email" required placeholder="Email Address">
+                <label for="Email">Email Address: </label>
+                <input type="email" name="Email" id="Email" required placeholder="Email Address">
                 <br>
                 <br>
-                <label for="phone">Phone Number: </label>
-                <input type="text" name="phone" id="phone" required placeholder="Phone Number" maxlength="15">
+                <label for="phoneno">Phone Number: </label>
+                <input type="tel" maxlength="10" name="phoneno" id="phoneno" required placeholder="Phone Number">
                 <br>
                 <br>
             </div>
 
-            <div class="password">
-                <label for="password">Password: </label>
-                <input type="password" name="password" id="password" required placeholder="Password">
-            </div>
-            <br>
             <div class="checkbox">
                 <span>
                     <input type="checkbox" name="agreed_to_terms" id="agreed_to_terms" required>
                     <label for="agreed_to_terms">
-                        I accept the <a href="#" class="text">Terms and Conditions</a> of your site.
+                        I accept the <a href="Assets/T&C.txt" class="text">Terms and Conditions</a> of your site.
                     </label>
                 </span>
+                <br>
             </div>
-            <div class="btn"><br><button type="submit">Submit</button></div>
+
+            <!-- <div class="checkbox">
+                <span>
+                    <input type="checkbox" name="checkbox" required>
+                    <label class="container">
+                        <p>I accept the <a href="Assets/T&C.txt" target="_blank" class="text">Terms and Conditions</a>
+                            of your site.</p>
+                </span>
+            </div> -->
+
+            <div class="btn">
+                <br>
+                <button type="submit">Submit</button>
+            </div>
             <br>
         </form>
     </div>
 </body>
+
+<script>
+    function submitForm(event) {
+        event.preventDefault();
+        window.open('home2.html', '_blank');
+        const formData = new FormData(event.target);
+        console.log('Form Data:', Object.fromEntries(formData.entries()));
+    }
+</script>
 
 </html>
