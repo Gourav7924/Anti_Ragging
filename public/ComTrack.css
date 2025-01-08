@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Martel+Sans:wght@600&family=Poppins&display=swap');
+
+*{
+    /* margin: 1%;
+    padding:0px; */
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    background-color: whitesmoke;
+}
+.main{
+    background-image: url(Assets/DALL·E\ 2025-01-05\ 16.57.06\ -\ A\ realistic\ protest\ scene\ in\ Kolkata\ against\ ragging\,\ featuring\ a\ large\ group\ of\ students\ holding\ banners\ and\ placards.\ The\ background\ includes\ iconic.webp);
+    opacity: 1;
+}
+div.write{
+    width: 95%;
+    display: inline-block;
+    background-color: beige;
+    
+    border: 4px solid white;
+    box-shadow: 8px 8px 3px gray;
+    border-radius: 7px;
+    margin-left: 20px;
+    margin-right: 10px;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.inside{
+    width: 70%;
+    background-color: aqua;
+    /* background-color: beige; */
+    text-align: center;
+}
+
+.img{
+    /* display: inline-block; */
+    /* border: 2px solid white; */
+    /* box-shadow: 5px 5px 3px grey ; */
+    /* border-radius: 20px; */
+    /* margin-top: 20px; */
+    display: block;
+    margin-left: auto; 
+    margin-right: auto;
+    
+    /* width: 50%; */
+    /* height: 100px; */
+}
+
+.navigation{
+    background-color: rgb(255, 208, 0);
+    width: 100%;
+    margin: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 50px;
+    border: 4px solid white;
+    box-shadow: 8px 8px 3px gray;
+}
+
+.btn{
+    background-color: transparent;
+    border-width: 0px;
+    align-items: self-end;
+    cursor: pointer;
+    padding: 10px;
+    font-size: medium;
+    font-weight: 600; 
+}
+
+div.buttons{
+    text-align: right;
+}
+
+.SearchButton{
+    background-color: red;
+    border: 0px;
+    border-radius: 9px;
+    color: white;
+    font-size: medium;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-shadow: 3px 3px rgb(128, 128, 128, .5);
+}
+
+.search{
+    margin: auto;
+    padding: 2px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    margin-left: 600px;
+}
+
+.data{
+    padding: 5px;
+    box-shadow: 3px 3px rgb(128, 128, 128, .5);
+    word-wrap: break-word;
+}
+.box {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 2px solid #ddd;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.box h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.complaint {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    text-align: left;
+}
+
+.complaint h3 {
+    margin: 0 0 10px;
+    color: #333;
+}
+
+.complaint p {
+    margin: 5px 0;
+    font-size: 0.9em;
+    color: #555;
+}

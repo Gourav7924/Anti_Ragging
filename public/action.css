@@ -1,0 +1,22 @@
+
+.main{
+    width: 30%;
+    margin-left: 500px;
+    height: auto;
+    background-color: rgb(251, 251, 251);
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 10px;
+    box-shadow: 5px 5px 4px rgb(182, 182, 182);
+    opacity: .3;
+    transition: 0.8s;
+    /* height: 20%; */
+    margin-top: 15%;
+}
+
+.main:hover{
+    opacity: 1;
+    width: 30.5%;
+    cursor: pointer;
+}
+

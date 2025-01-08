@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Your Complaint</title>
+    <link rel="stylesheet" href="ComTrack.css">
+</head>
+
+<body>
+    <div class="main">
+        <!-- Navigation Section -->
+        <nav class="navigation">
+            <div class="buttons">
+                <button class="btn">About Us</button>
+                <button class="btn">Guidelines</button>
+                <button class="btn">Feedback</button>
+                <button class="btn">Register Your Complaint</button>
+                <button class="btn">Contact Us</button>
+            </div>
+        </nav>
+
+        <!-- Search Section -->
+        <div class="search">
+            <form id="complaintForm">
+                <input class="data" type="number" id="track" name="mobile" placeholder="Enter your Mobile number" required>
+                <button class="SearchButton" type="submit">Search</button>
+            </form>
+        </div>
+
+        <!-- Results Section -->
+        <div class="box">
+            <h2>Complaint Results</h2>
+            <div id="results"></div>
+        </div>
+
+        <!-- Content Section -->
+        <div class="content">
+            <div class="write">
+                <div class="inside">
+                    <p>Ragging, a practice rooted in intimidation and humiliation, has caused irreparable damage to countless lives. Recognizing its devastating impact, the Anti-Ragging Mission fosters a safe, respectful, and inclusive environment for students.</p>
+                    <p>Our mission is to eradicate the menace of ragging by promoting awareness, enforcing strict policies, and providing a robust support system for victims.</p>
+                    <img class="img" src="Assets/background.png" alt="Anti-Ragging">
+                    <p>We empower victims to voice their grievances without hesitation, ensuring transparency and accountability. Join us in building campuses where every individual feels valued and secure.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('complaintForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const mobile = document.getElementById('track').value;
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = '<p>Loading...</p>';
+    
+            try {
+                const response = await fetch(`/track-complaint?mobile=${mobile}`);
+                const data = await response.json();
+    
+                if (response.ok) {
+                    if (data.complaints && data.complaints.length > 0) {
+                        resultsDiv.innerHTML = data.complaints.map(complaint => {
+                            const formattedDate = new Date(complaint.submitted_at).toLocaleString(); // Convert ISO string to readable format
+    
+                            return `
+                                <div class="complaint">
+                                    <h3>${complaint.complaint_name}</h3>
+                                    <p><strong>Status:</strong> ${complaint.status}</p>
+                                    <p><strong>Details:</strong> ${complaint.details}</p>
+                                    <p><strong>Date:</strong> ${formattedDate}</p>
+                                </div>
+                            `;
+                        }).join('');
+                    } else {
+                        resultsDiv.innerHTML = '<p>No complaints found for this mobile number.</p>';
+                    }
+                } else {
+                    resultsDiv.innerHTML = `<p>${data.error || 'An error occurred.'}</p>`;
+                }
+            } catch (error) {
+                console.error("Error fetching complaints:", error);
+                resultsDiv.innerHTML = '<p>An error occurred. Please try again later.</p>';
+            }
+        });
+    </script>
+    
+</body>
+
+</html>

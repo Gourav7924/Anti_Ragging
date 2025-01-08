@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="resolution.css">
+    <title>Agenda & Resolutions</title>
+</head>
+
+<body>
+    <div class="main">
+        <h1>Agenda & Resolutions</h1>
+        <form action="#" method="post" id="Agenda" onsubmit="submitForm(event)">
+            <div class="agenda">
+                <label for="agenda">Agenda Information: </label>
+                <textarea name="agenda" id="agenda" placeholder="Agenda Information in details..." rows="2" required>
+                </textarea>
+                <br>
+                <div class="resolutions">
+                    <label for="resolutions">Resolutions passed</label>
+                    <textarea name="resolutions" id="resolutions" rows="2" placeholder="Resolutions passed in meeting"
+                        required>Resolutions passed in today's meeting...</textarea>
+                </div>
+                <br>
+                <label for="uploaded_at">Date of upload: </label>
+                <input type="date" name="uploaded_at" id="uploaded_at" required>
+            </div>
+            <br>
+            <div>
+                <label for="uploaded_by">Uploader of resolutions</label>
+                <input type="text" class="uploaded_by" id="uploaded_by" required
+                    placeholder="Person who draftes the resolution">
+            </div>
+            <div class="btn"><br><button type="submit">Submit</button></div>
+            <br>
+    </div>
+   
+    </form>
+    </div>
+</body>
+
+<script>
+    function submitForm(event) {
+        event.preventDefault(); 
+        window.open('homedesciplinary.html', '_blank');
+        const formData = new FormData(event.target);
+        console.log('Form Data:', Object.fromEntries(formData.entries()));
+    }
+</script>
+
+
+</html>

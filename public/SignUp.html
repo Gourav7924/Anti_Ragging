@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="SignUp.css">
+    <title>Sign Up</title>
+</head>
+
+<body>
+    <div class="main">
+        <h1>Sign Up</h1>
+        <form action="/signup" method="post" id="myform">
+            <div class="Who">
+                <label for="title">Who is This: </label>
+                <select name="title" required>
+                    <option value="Student">Student</option>
+                    <option value="Mental Counselor">Mental Counselor</option>
+                    <option value="Disciplinary Committee">Disciplinary Committee</option>
+                </select>
+            </div>
+            <br>
+            <div class="name">
+                <label for="full_name">Full Name: </label>
+                <input type="text" name="full_name" id="full_name" class="input-text" placeholder="Full Name" required>
+            </div>
+            <br>
+            <div class="address">
+                <h2>Address</h2>
+                <label for="street">Street Name: </label>
+                <input type="text" name="street" placeholder="Street Name" id="street" required>
+                <br>
+                <br>
+                <label for="additional_info">Address Line 2: </label>
+                <input type="text" name="additional_info" id="additional_info" placeholder="Additional Information">
+                <br>
+                <br>
+                <label for="zip">PinCode: </label>
+                <input type="text" name="zip" id="zip" placeholder="Zip Code" required>
+                <br>
+                <br>
+                <label for="place">Place (Street/District/City): </label>
+                <input type="text" name="place" id="place" placeholder="Street, District, or City" required>
+                <br>
+                <br>
+                <label for="country">Country Name: </label>
+                <select name="country" id="country" required>
+                    <option value="India">India</option>
+                    <option value="Malaysia">Malaysia</option>
+                    <option value="Vietnam">Vietnam</option>
+                </select>
+            </div>
+
+            <div class="contact">
+                <h2>Contact Details</h2>
+                <label for="email">Email Address: </label>
+                <input type="email" name="email" id="email" required placeholder="Email Address">
+                <br>
+                <br>
+                <label for="phone">Phone Number: </label>
+                <input type="text" name="phone" id="phone" required placeholder="Phone Number" maxlength="15">
+                <br>
+                <br>
+            </div>
+
+            <div class="password">
+                <label for="password">Password: </label>
+                <input type="password" name="password" id="password" required placeholder="Password">
+            </div>
+            <br>
+            <div class="checkbox">
+                <span>
+                    <input type="checkbox" name="agreed_to_terms" id="agreed_to_terms" required>
+                    <label for="agreed_to_terms">
+                        I accept the <a href="#" class="text">Terms and Conditions</a> of your site.
+                    </label>
+                </span>
+            </div>
+            <div class="btn"><br><button type="submit">Submit</button></div>
+            <br>
+        </form>
+    </div>
+</body>
+
+</html>

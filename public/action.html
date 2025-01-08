@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="action.css">
+    <title>Action</title>
+</head>
+
+<body>
+    <div class="main">
+        <h1>Action Form</h1>
+        <form action="#" method="post" id="Action" onsubmit="submitForm(event)">
+            <div class="complaint_id">
+                <label for="complaint_id">Complaint_Id: </label>
+                <input type="number" name="complaint_id" id="complaint_id" required
+                    placeholder="Enter the Complaint_Id">
+            </div>
+            <br>
+            <div class="action_description">
+                <label for="action_description">Action Description: </label>
+                <textarea name="action_description" rows="3" id="action_description"
+                    required>Details of action to be taken...</textarea>
+            </div>
+            <br>
+            <div class="taken_by">
+                <label for="taken_by">Taken By: </label>
+                <input type="text" name="taken_by" id="taken_by" required placeholder="Action taker">
+            </div>
+            <br>
+            <div class="btn"><br><button type="submit">Submit</button></div>
+        <br>
+        </form>
+    </div>
+</body>
+
+<script>
+    function submitForm(event) {
+        event.preventDefault(); 
+        window.open('homedesciplinary.html', '_blank');
+        const formData = new FormData(event.target);
+        console.log('Form Data:', Object.fromEntries(formData.entries()));
+    }
+</script>
+
+</html>

@@ -1,0 +1,23 @@
+/* *{
+    background-image: url(Assets/DALL·E\ 2025-01-07\ 15.45.43\ -\ A\ clean\ and\ modern\ solid\ background\ image\ for\ the\ signup\ page\ of\ an\ anti-ragging\ software.\ The\ design\ is\ minimalistic\,\ featuring\ a\ smooth\ gradient\ of\ .webp);
+} */
+.main{
+    width: 30%;
+    margin-left: 500px;
+    height: auto;
+    background-color: rgb(251, 251, 251);
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 10px;
+    box-shadow: 5px 5px 4px rgb(182, 182, 182);
+    opacity: .3;
+    transition: 0.8s;
+    margin-top: 15%;
+}
+
+.main:hover{
+    opacity: 1;
+    width: 30.5%;
+    cursor: pointer;
+}
+
