@@ -35,6 +35,10 @@ div.write{
     width: 86%;
 }
 
+#first{
+    margin-top: 100px;
+}
+
 .inside{
     width: 70%;
     /* background-color: aqua; */
@@ -66,6 +70,10 @@ div.write{
     padding-right: 50px;
     border: 4px solid white;
     box-shadow: 8px 8px 3px gray;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
 }
 
 .btn{

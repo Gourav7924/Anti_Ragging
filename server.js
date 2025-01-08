@@ -108,7 +108,7 @@ app.post('/signup', async (req, res) => {
         }
 
         console.log("User inserted successfully:", data);
-        res.redirect('/login');
+        res.redirect('/home');
     } catch (error) {
         console.error("Sign-Up Error:", error.message);
         res.status(400).json({ error: error.message });
@@ -216,7 +216,7 @@ app.post('/complaints', authenticateToken, async (req, res) => {
         }
 
         console.log("Complaint submitted successfully");
-        res.status(201).json({ message: 'Complaint submitted successfully' });
+        res.redirect('/home');
     } catch (error) {
         console.error("Complaint Submission Error:", error.message);
         res.status(400).json({ error: error.message });
@@ -264,14 +264,9 @@ app.get('/track-complaint', async (req, res) => {
 // Route: Serve Home Page
 app.get('/home', authenticateToken, (req, res) => {
     console.log("User accessing /home:", req.user);
-    res.sendFile(path.join(__dirname, 'public', 'home.html'));
+    res.sendFile(path.join(__dirname, 'public', 'home2.html'));
 });
 
-// Route: Serve Home Page Without Authentication (Test Only)
-// Uncomment this route temporarily to test static file serving.
-// app.get('/home', (req, res) => {
-//     res.sendFile(path.join(__dirname, 'public', 'home.html'));
-// });
 
 // Route: Serve Home Page
 app.get('/', (req, res) => {
